@@ -117,10 +117,11 @@ ON g.ID = s.Game;
 
 ###########Bonus: SQL Solution#################
 
-SELECT DISTINCT g.Game, g.Winner, s.Score AS "WinnerScore"
+SELECT DISTINCT g.Game, g.Winner, MAX(s.Score) AS "WinnerScore"
 FROM Game  g
 JOIN Score s
-ON g.ID = s.Game;
+ON g.ID = s.Game
+GROUP BY g.game, g.winner;
 
 ####################################
 
